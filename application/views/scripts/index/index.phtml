@@ -1,0 +1,19 @@
+<?php
+$baseUrl = Zend_Registry::get('constants')->base_url;
+
+echo $this->headLink()->prependStylesheet('/vendor/bxslider/css/jquery.bxslider.css', 'all', true);
+echo $this->inlineScript()->appendFile('/vendor/bxslider/js/jquery.bxslider.js');
+?>
+
+<div class="home main-section">
+    <div class="carousel-wrapper">
+        <ul class="bxslider">
+          <li><img src="/static/img/carousel-1.jpg" alt="San Francisco, USA" data-description="Golden Gate Bridge"></li>
+            <li><img src="/static/img/carousel-2.jpg" alt="Corazon 1"></li>
+        </ul>
+    </div>
+</div>
+
+<?php
+echo $this->inlineScript()->prependFile('static/js/home.js', 'text/javascript');
+?>

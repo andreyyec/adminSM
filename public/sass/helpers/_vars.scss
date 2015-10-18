@@ -1,0 +1,28 @@
+//Vars Sizes
+$body-font-size: 	14px;
+
+$desktop-width: 	1000px;
+$desktop-max-width: $desktop-width + $grid-gutter-width;
+$desktop-min-width: $screen-md-min;
+$tablet-max-width: 	$screen-sm-max;
+$tablet-min-width: 	$screen-sm-min;
+$mobile-max-width: 	$screen-xs-max;
+
+// Backgrounds
+$background-header: url('../img/main-background.jpg') repeat-x;
+
+// Colors
+$white:			#ffffff;	//blanco
+$home: 			#595391;	//morado
+$home-hover:	#8d86cd;	
+$gallery: 		#036ca6;	//celeste
+$gallery-hover:	#7cbbfd;	
+$story: 		#4f8436;	//verde
+$story-hover:	#96ba5e;
+$blog: 			#e6b630;	//amarillo
+$blog-hover:	#f1cd6a;
+$about: 		#eb6c0f;	//naranja
+$about-hover: 	#f79e5d; 
+$login: 		#c0212d; 	//rojo
+$login-hover:	#e56d76;
+

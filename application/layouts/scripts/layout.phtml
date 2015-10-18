@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title><?php echo $this->layout()->title; ?></title>
+  <?php
+  	$baseUrl = Zend_Registry::get('constants')->base_url; 
+  	echo $this->headLink()->appendStylesheet('/static/css/screen.css');
+  	echo $this->headScript()->appendFile('/vendor/jquery/jquery-1.11.3.min.js')
+  							->appendFile('/static/js/bootstrap.min.js');
+  ?>
+</head>
+<body>
+	<div class="row pageOuterWrapper">
+		<div class="pageInnerWrapper col-xs-12 col-sm-12 col-md-10">
+				<header>
+					<nav class="row">
+					 	<img src="static/img/main-logo.png">
+					 	<span class="navigation-bars glyphicon glyphicon-menu-hamburger"></span>
+					 	<div id="global-nav" class="navigation-list desktop-show col-xs-12 col-sm-12 col-md-8">
+						  	<ul>
+						   		<li class="home col-xs-4 col-sm-2 col-md-2">
+						    		<a href="/" ><span class="link-decoration"><i class="glyphicon glyphicon-home"></i></span><span class="link-text">Inicio</span></a> 
+						   		</li>
+							   	<li class="gallery col-xs-4 col-sm-2 col-md-2">
+							    	<a href="/gallery"><span class="link-decoration"><i class="glyphicon glyphicon-picture"></i></span><span class="link-text">Galería</span></a>
+							   	</li>
+							   	<li class="story col-xs-4 col-sm-2 col-md-2">
+							    	<a href="/story"><span class="link-decoration"><i class="glyphicon glyphicon-book"></i></span><span class="link-text">Historias</span></a>
+							   	</li>
+							   	<li class="blog col-xs-4 col-sm-2 col-md-2">
+							    	<a href="/blog"><span class="link-decoration"><i class="glyphicon glyphicon-comment"></i></span><span class="link-text">Blog</span></a>
+							   	</li>
+							   	<li class="login col-xs-4 col-sm-2 col-md-2">
+							    	<a href="/login"><span class="link-decoration"><i class="glyphicon glyphicon-user"></i></span><span class="link-text">Ingreso</span></a>
+							   	</li>
+							   	<li class="about col-xs-4 col-sm-2 col-md-2">
+						    		<a href="/about"><span class="link-decoration"><i class="glyphicon glyphicon-question-sign"></i></span><span class="link-text">Acerca de..</span></a>
+							   	</li>
+						  	</ul>
+					  	</div>
+					</nav>
+				</header>
+			<div class="mainContent">
+				<?php  echo $this->layout()->content ?>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

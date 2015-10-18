@@ -1,0 +1,25 @@
+    Important links:
+
+http://demo.hackerthemes.com/tales/html-version/v2-1/blog-detail.html
+
+http://www.jqueryrain.com/?8JZJrFMi
+
+https://wrapbootstrap.com/theme/tales-responsive-blog-theme-WB034M8P5
+
+http://www.jqueryrain.com/2014/07/timeline-css3-jquery/
+
+	
+	//carousel
+
+https://github.com/stevenwanderski/bxslider-4
+
+
+    //code drops navigation, timeline, blueprints
+
+http://tympanus.net/Blueprints/VerticalTimeline/
+
+http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/
+
+http://tympanus.net/Tutorials/OriginalHoverEffects/
+
+http://tympanus.net/codrops/category/blueprints/

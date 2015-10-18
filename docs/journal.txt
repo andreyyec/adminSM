@@ -1,0 +1,5 @@
+NEXT STEPS:
+
+Add captions to carousel
+Add main body background
+Add footer

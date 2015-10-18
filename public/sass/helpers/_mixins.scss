@@ -1,0 +1,152 @@
+//General
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@function percent($size, $parent) {
+  @return #{(strip-units($size)/strip-units($parent)) * 100%};
+}
+
+@function rem($size) {
+  @return #{strip-units($size)/strip-units($body-font-size)}rem;
+}
+
+@function em($size, $base: $body-font-size) {
+  @return #{strip-units($size)/strip-units($base)}em;
+}
+
+@mixin font-size-rem($size) {
+  font-size: #{strip-units($size)}px;
+  font-size: rem(strip-units($size));
+}
+
+@mixin font-size-em($size, $base: $body-font-size) {
+  font-size: em(strip-units($size), strip-units($base));
+}
+
+@mixin color-rgba($color, $alpha){
+    color: $color;
+    color: rgba($color, $alpha);
+}
+
+@mixin bg-color-rgba($color, $alpha){
+    background-color: $color;
+    background-color: rgba($color, $alpha);
+}
+
+@mixin hover-pointer($cursor: true){
+    @if $cursor == false {
+        &:hover {
+            cursor: default;
+        }
+    }
+    @else {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+@mixin clear-list(){
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin equal-column-fix() {
+    padding-bottom: 9999px;
+    margin-bottom: -9999px;
+}
+
+@mixin get-sprite-icon( $icon, $x2: false, $width: false, $height: false, $repeat: no-repeat ){
+    $base: 1;
+    $map: $my-icons-sprites;
+    $sprite-image: sprite-file( $map, $icon );
+    $sprite-map: sprite-url( $map );
+    $sprite-position: sprite-position( $map, $icon );
+    //return background
+    background: $sprite-map $sprite-position $repeat;
+
+    @if $x2 == true {
+        $base: 2;
+        @include background-size( ceil( image-width( $sprite-image ) / $base ) auto);
+        //return x2 position
+        background-position: nth( $sprite-position, 1 ) ( nth($sprite-position, 2 ) / $base );
+    }
+
+    @if $width == true {
+        $sprite-width: image-width( $sprite-image );
+        //return width
+        width: ( $sprite-width / $base );
+    }
+    @if $height == true {
+        $sprite-height: image-height( $sprite-image );
+        //return height
+        height: ( $sprite-height / $base );
+    }
+}
+
+@include keyframes(rotation) {
+    from {
+        @include rotate(0deg);
+    }
+    to {
+        @include rotate(360deg);
+    }
+}
+
+//Media Queries
+@mixin mobile()
+{
+  @media screen and (max-width: $mobile-max-width)
+  {
+    @content;
+  }
+}
+@mixin tablet()
+{
+  @media only screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width)
+  {
+    @content;
+  }
+}
+@mixin tablet-under()
+{
+  @media only screen and (max-width: $tablet-max-width)
+  {
+    @content;
+  }
+}
+@mixin tablet-upper()
+{
+  @media only screen and (min-width: $tablet-min-width)
+  {
+    @content;
+  }
+}
+@mixin desktop()
+{
+  @media only screen and (min-width: $desktop-min-width)
+  {
+    @content;
+  }
+}
+
+@mixin legacy(){
+    //TMP IE8 fix
+  .ie-8 & {
+      @content;
+  }
+}
+
+@mixin retina(){
+    @media
+        only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (   min--moz-device-pixel-ratio: 2),
+        only screen and (     -o-min-device-pixel-ratio: 2/1),
+        only screen and (        min-device-pixel-ratio: 2),
+        only screen and (                min-resolution: 192dpi),
+        only screen and (                min-resolution: 2dppx) {
+        @content;
+    }
+}
