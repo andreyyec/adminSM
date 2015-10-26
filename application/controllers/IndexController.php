@@ -1,17 +1,16 @@
 <?php
 
-class IndexController extends Zend_Controller_Action
+class IndexController extends Zend_Controller_Base
 {
 
     public function init()
     {
-        /* Initialize action controller here */
+    	parent::init();
     }
 
     public function indexAction()
     {
-        Zend_Layout::getMvcInstance()->assign('title', 'Home');
-        
+        $this->view->title = 'Home';
     }
 
 
