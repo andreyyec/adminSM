@@ -1,6 +1,6 @@
 <?php
 
-class LoginController extends Zend_Controller_Base
+class LoginController extends Base_Controller_BaseController
 {
 
     public function init()
@@ -16,5 +16,3 @@ class LoginController extends Zend_Controller_Base
 
 
 }
-
-`

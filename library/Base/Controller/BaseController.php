@@ -1,6 +1,6 @@
 <?php
 
-class Zend_Controller_Base extends Zend_Controller_Action{
+class Base_Controller_BaseController extends Zend_Controller_Action{
 
     public function init()
     {
@@ -8,7 +8,7 @@ class Zend_Controller_Base extends Zend_Controller_Action{
     }
 
     protected function _session_hander(){
-    	$baseModel = new Application_Model_Base();
+    	$baseModel = new Base_Model_BaseModel();
     	$session = $baseModel->userValidate();
     	if ($session === true) {
     		echo "EN SESION";
