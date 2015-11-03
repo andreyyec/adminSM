@@ -49,7 +49,7 @@ class Base_Model_BaseModel{
 
     	// -- Retrieve
     	$users = R::findAll('user'); // Select * FROM user;
-    	$specUser = R::load('user', $users->[3]->id); // Buscan un id especifico obtenido anteriormente
+    	//$specUser = R::load('user', $users->[3]->id); // Buscan un id especifico obtenido anteriormente
 
 
 
@@ -72,7 +72,7 @@ class Base_Model_BaseModel{
     $data = R::getAll("SELECT * From user");
     $data1 = R::getRow("SELECT * From user");
 
-    R::exec('DELETE FROM user WHERE id = ?', [3]);
+    //R::exec('DELETE FROM user WHERE id = ?', [3]);
 
     }
 
@@ -80,7 +80,7 @@ class Base_Model_BaseModel{
 //Extended
 
     
-    $page = R::xdispense( 'cms_page' );
+    //$page = R::xdispense( 'cms_page' );
 
 }
 ?>
