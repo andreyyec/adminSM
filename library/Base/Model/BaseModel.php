@@ -3,16 +3,18 @@
 require 'Beans/rb.php';
 
 class Base_Model_BaseModel{
-    protected $_test;
+    
+    protected $db;
 
     function init(){
     	db_setup();
     	extended_functions();
+        $this->db = R;
     }
  
     function db_setup(){
-    	R::setup( 'pgsql:host=localhost;dbname=odoo',
-        'postgres', 'postgres' );
+    	R::setup( 'pgsql:host=localhost;dbname=postgres',
+        'postgres', 'Admin123' );
 
         R::freeze(1);
     }
@@ -27,11 +29,25 @@ class Base_Model_BaseModel{
     	R::close();
     }
 
+    function dbReturn(){
+        return $this->db;
+    }
+
     function userValidate(){
         session_start();
         
         return false;
     }
+
+    function getDbTable($table) {
+        $table = R::findAll($table);
+        return $table;
+    }
+
+
+
+
+
 
     function example_redBeans(){
 
@@ -74,6 +90,11 @@ class Base_Model_BaseModel{
 
     //R::exec('DELETE FROM user WHERE id = ?', [3]);
 
+    }
+
+    public function selectAllFromTable($table){
+        $table = R::findAll($table);
+        return $table;
     }
 
 
