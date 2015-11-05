@@ -1,20 +1,19 @@
 <?php
 
+require 'Beans/rb.php';
+
 class Base_Controller_BaseController extends Zend_Controller_Action{
 
     public function init()
     {
-    	$this->_session_hander();
+        session_start();
+        $this->_session_handler();
     }
 
-    protected function _session_hander(){
-    	$baseModel = new Base_Model_BaseModel();
-    	$session = $baseModel->userValidate();
-    	if ($session === true) {
-    		echo "EN SESION";
-    	}else{
-    		echo "Session expirada";
-    	};
+    protected function _session_handler(){
+        if (!isset($_SESSION['userid'])) {
+            $this->_redirect('/login?status=sessionExpired');
+        };
     }
 
 }

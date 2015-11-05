@@ -3,51 +3,91 @@
 require 'Beans/rb.php';
 
 class Base_Model_BaseModel{
-    
-    protected $db;
 
-    function init(){
-    	db_setup();
-    	extended_functions();
-        $this->db = R;
+    function __construct(){
+        $this->init();
     }
+    
+    function init(){
+    	$this->_openDBConnection();
+    	$this->_setExtendedFunctionsDB();
+    }
+
+    // BASE DB functions
  
-    function db_setup(){
+    public function _openDBConnection(){
     	R::setup( 'pgsql:host=localhost;dbname=postgres',
         'postgres', 'Admin123' );
 
         R::freeze(1);
     }
 
-    function extended_functions(){
-    	R::ext('xdispense', function( $type ){ 
-        	return R::getRedBean()->dispense( $type ); 
-    	});
-    }
-
-    function db_close(){
+    protected function _closeDBConnection(){
     	R::close();
     }
 
-    function dbReturn(){
+    protected function _getDB(){
         return $this->db;
     }
 
-    function userValidate(){
-        session_start();
-        
-        return false;
+    protected function _setExtendedFunctionsDB(){
+        R::ext('xdispense', function( $type ){ 
+            return R::getRedBean()->dispense( $type ); 
+        });
     }
 
-    function getDbTable($table) {
+    public function getDbTable($table) {
         $table = R::findAll($table);
         return $table;
     }
 
 
+    public function getDbRegistries($table, $parameters){
+
+        $query = '';
+        $paramArray = array();
+        $counter = 0;
+        foreach ($parameters as $key => $value) {
+            if ($counter !== 0) {
+                $query .= ' AND '.$key.' = :'.$key;
+            }else{
+                $query = $key.' = :'.$key;
+            }
+
+            $paramArray[':'.$key] = $value;
+            $counter ++;
+        }
+        $registry = R::find($table, $query, $paramArray);
+     
+        return $registry;
+    }
+
+    public function getDbRegistry($table, $parameters){
+
+        $query = '';
+        $paramArray = array();
+        $counter = 0;
+        foreach ($parameters as $key => $value) {
+            if ($counter !== 0) {
+                $query .= ' AND '.$key.' = :'.$key;
+            }else{
+                $query = $key.' = :'.$key;
+            }
+
+            $paramArray[':'.$key] = $value;
+            $counter ++;
+        }
+        $registry = R::findOne('res_users', $query, $paramArray);
+     
+        return $registry;
+    }
+
+    
 
 
 
+
+    // Example Red Beans functions
 
     function example_redBeans(){
 
@@ -104,4 +144,7 @@ class Base_Model_BaseModel{
     //$page = R::xdispense( 'cms_page' );
 
 }
+
+
+
 ?>
