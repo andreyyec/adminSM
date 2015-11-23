@@ -1,0 +1,35 @@
+<?php
+
+?>
+
+<!-- Notification area -->
+<div class="row">
+    <div class="col-lg-3 col-xs-6">
+        <div class="small-box bg-aqua">
+            <div class="inner">
+                <h3><?php echo (isset($this->dailyLoans)? $this->dailyLoans : 'error')?></h3>
+                <p>Adelantos Pendientes</p>
+            </div>
+            
+            <div class="icon">
+                <i class="fa fa-money"></i>
+            </div>
+            <a href="#" class="small-box-footer">Ver detalle <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+        
+    <div class="col-lg-3 col-xs-6">
+        <div class="small-box bg-green">
+            <div class="inner">
+                <h3><?php echo (isset($this->severance)? $this->severance : 'error')?></h3>
+                <p>Liquidaciones</p>
+            </div>
+            
+            <div class="icon">
+                <i class="ion ion-person-add"></i>
+            </div>
+            <a href="#" class="small-box-footer">Ver detalle <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+</div>
+      
