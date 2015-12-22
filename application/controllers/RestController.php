@@ -18,8 +18,10 @@ class RestController extends Base_Controller_BaseController
     }
 
     public function getemployeesAction(){
-
         $data = array();
+        
+        $employees = $this->restModel->getEmployees();
+        die($employees);
         $data1 = array("Peter","Joe", "Peter","Joe", 35);
         array_push($data, $data1);
 

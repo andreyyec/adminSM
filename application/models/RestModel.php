@@ -6,7 +6,9 @@ class Application_Model_RestModel extends Base_Model_BaseModel{
     }
 
     public function getEmployees(){
-        $this->getDbTable('employees');
+        $employees = $this->getDbTable('employees');
+
+        return $employees;
     }
 }
 ?>

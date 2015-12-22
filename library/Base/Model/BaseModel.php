@@ -37,7 +37,7 @@ class Base_Model_BaseModel{
     }
 
     public function getDbTable($table) {
-        $table = R::findAll($table);
+        $table = R::findAll('adminsm_'.$table);
         return $table;
     }
 
