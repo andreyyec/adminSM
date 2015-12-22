@@ -1,6 +1,6 @@
 <?php
 
-require 'Beans/rb.php';
+require_once 'Beans/rb.php';
 
 class Base_Model_BaseModel{
 

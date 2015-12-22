@@ -9,6 +9,7 @@ class RestController extends Base_Controller_BaseController
         $this->_helper->layout->disableLayout();
         $this->_response->setHeader('Content-Type', 'text/plain');
         $this->_helper->viewRenderer->setNoRender(true);
+        $this->restModel = new Application_Model_RestModel();
     }
 
     public function indexAction()
@@ -18,15 +19,18 @@ class RestController extends Base_Controller_BaseController
 
     public function getemployeesAction(){
 
-       $data = array();
-       $data1 = array("Peter","Joe", "Peter","Joe", 35, 43);
-       array_push($data, $data1);
+        $data = array();
+        $data1 = array("Peter","Joe", "Peter","Joe", 35);
+        array_push($data, $data1);
 
-        //[["stuff","stuff","stuff","stuff","stuff","stuff","stuff","stuff","stuff","stuff"]]
+        echo json_encode($data);
+    }
 
-        $response = json_encode($data);
-        
-        die($response);
+    public function setemployeeAction(){
+
+        $data = 'setEmployee';
+
+        echo json_encode($data);
     }
 
 
