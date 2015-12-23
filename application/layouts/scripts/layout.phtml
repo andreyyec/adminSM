@@ -54,7 +54,7 @@
 		          <!-- User Account nav menu -->
 		          	<li class="dropdown user user-menu">
 			            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-			              <span class="hidden-xs">Alexander Pierce</span>
+			              <span class="fa fa-user"></span><span class="hidden-xs"><?php echo $_SESSION['user'];?></span>
 			            </a>
 			            <ul class="dropdown-menu">
 			              	<!-- User image -->
@@ -138,7 +138,18 @@
 			            	<li><a href="/payroll/weekly/"><i class="fa fa-circle-o"></i> Semanal</a></li>
 			            	<li><a href="/payroll/loans/"><i class="fa fa-circle-o"></i> Prestamos</a></li>
 			            	<li><a href="/payroll/employees/"><i class="fa fa-circle-o"></i> Empleados</a></li>
-			          	</ul>
+
+			            	<li class="treeview">
+					          	<a href="#">
+					            	<i class="fa fa-gear"></i>
+					            	<span>Configuración</span>
+					            	<i class="fa fa-angle-left pull-right"></i>
+					          	</a>
+					          	<ul class="treeview-menu">
+					            	<li><a href="/payroll/policies/"><i class="fa fa-circle"></i>Polizas</a></li>
+					          	</ul>
+					        </li>
+				        </ul>
 			        </li>
 
 			        <li class="treeview">

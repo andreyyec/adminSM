@@ -10,5 +10,11 @@ class Application_Model_RestModel extends Base_Model_BaseModel{
 
         return $employees;
     }
+
+    public function getPolicies(){
+        $policies = $this->getDbTable('policies');
+
+        return $policies;
+    }
 }
 ?>

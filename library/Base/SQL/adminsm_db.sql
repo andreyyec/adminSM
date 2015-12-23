@@ -22,11 +22,19 @@ isemployer CHAR(1) NOT NULL
 CREATE TABLE adminsm_policies(
 id SERIAL PRIMARY KEY,
 name VARCHAR(40) NOT NULL,
-pnumber INT NOT NULL,
 type CHAR(1) NOT NULL,
 year INTEGER NOT NULL,
 month INTEGER NOT NULL,
-idnumber VARCHAR(15) NOT NULL REFERENCES adminsm_employees(idnumber),
 phone INTEGER NOT NULL,
-fax INTEGER
+fax INTEGER,
+pname VARCHAR(40) NOT NULL,
+pidnumber VARCHAR(15) NOT NULL,
+pnumber INT NOT NULL
 );
+
+
+
+// insert policy
+INSERT INTO adminsm_policies(
+            name, type, year, month, phone, pname, pidnumber, pnumber)
+    VALUES ('test1', 'M', 2015, 12, 22751833, 'Gerardo Castro', 112344321, 88778877);

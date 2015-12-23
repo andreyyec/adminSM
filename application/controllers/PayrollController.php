@@ -33,6 +33,11 @@ class PayrollController extends Base_Controller_BaseController
         $this->view->title = 'Empleados';
     }
 
+    public function policiesAction()
+    {
+        $this->view->title = 'Polizas';
+    }
+
 
 }
 
