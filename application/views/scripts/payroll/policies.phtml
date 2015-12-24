@@ -14,7 +14,7 @@ $this->inlineScript()
         <div class="box">
             <!-- .box-header -->
             <div class="box-header">
-                <h3 class="box-title">Polizas</h3>                                    
+                 <a class="btn btn-success btn-add" data-toggle="modal" data-target="#action-modal"><i class="fa fa-plus"></i> Agregar</a>                             
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -36,4 +36,99 @@ $this->inlineScript()
         </div>
         <!-- /.box-body -->
     </div>
+</div>
+
+<div class="modal fade in" id="action-modal" tabindex="-1" role="dialog" aria-hidden="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Editar Póliza</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h5> Datos de la póliza:</h5>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Nombre:</span>
+                                <input name="policyName" type="text" class="form-control" placeholder="Nombre de póliza">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Número de póliza:</span>
+                                <input name="policyNumber" type="text" class="form-control" placeholder="Ej: 667755">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h5> Datos del patrono:</h5>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Tipo de identificación:</span>
+                                <select name="email_to" type="email" class="form-control" placeholder="Email CC">
+                                    <option>Cédula Jurídica</option>
+                                    <option>Cédula Nacional</option>
+                                    <option>Documento Único</option>
+                                    <option>Pasaporte</option>
+                                    <option>Residencia</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Identificación:</span>
+                                <input name="employerIdNumber" type="text" class="form-control" placeholder="Número de identificación">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Nombre:</span>
+                                <input name="employerName" type="text" class="form-control" placeholder="Nombre del dueño de la póliza">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Teléfono:</span>
+                                <input name="employerPhone" type="text" class="form-control" placeholder="Ej:87468375">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Fax:</span>
+                                <input name="employerFax" type="text" class="form-control" placeholder="Opcional">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">E-mail:</span>
+                                <input name="employerEmail;" type="email" class="form-control" placeholder="Ej: ejemplo@micorreo.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="address" class="form-control" placeholder="Dirección exacta de la empresa" style="height: 75px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+            </div>
+            <div class="modal-footer clearfix">
+
+                <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i> Actualizar</button>
+
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancelar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
 </div>

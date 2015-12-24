@@ -18,6 +18,7 @@ class RestController extends Base_Controller_BaseController
     }
 
     public function getemployeesAction(){
+        //$this->restModel->getEmployees();
         $data = array();
         
         $employees = $this->restModel->getEmployees();
@@ -37,19 +38,9 @@ class RestController extends Base_Controller_BaseController
 
     public function getpoliciesAction(){
 
-        $data = array();
-        
         $policies = $this->restModel->getPolicies();
 
-        foreach ($policies as $policy) {
-            $actions = "This is the action";
-            $temp = array($policy->id, $policy->name, $policy->type, $policy->pname, $actions);
-            array_push($data, $temp);
-        }
-        //$data1 = array("Peter","Joe", "Peter","Joe", 35);
-        //array_push($data, $data1);
-
-        echo json_encode($data);
+        echo json_encode($policies);
     }
 
 
