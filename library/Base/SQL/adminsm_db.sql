@@ -8,7 +8,7 @@ employerName VARCHAR(80),
 employerPhone INTEGER NOT NULL,
 employerFax INTEGER,
 employerMail VARCHAR(80) NOT NULL,
-employerAddress VARCHAR(250) NOT NULL
+employerAddress VARCHAR(250) NOT NULL,
 active CHAR(1) NOT NULL
 );
 
@@ -29,7 +29,5 @@ hoursamonth INTEGER NOT NULL,
 ocupation VARCHAR(80) NOT NULL,
 policy INT NOT NULL REFERENCES adminsm_policies(id), 
 workday VARCHAR(80) NOT NULL,
-active CHAR(1) NOT NULL,
-isemployer CHAR(1) NOT NULL,
 active CHAR(1) NOT NULL
 );
