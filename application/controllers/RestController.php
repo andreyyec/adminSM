@@ -36,6 +36,19 @@ class RestController extends Base_Controller_BaseController
         echo json_encode($data);
     }
 
+    public function setpolicyAction(){
+
+        //$data = $this->getRequest()->getPost;
+
+        $data['name'] = 'test1';
+
+        $policies = $this->restModel->setPolicy($data);
+
+        die(var_dump($policies));
+
+        //echo json_encode($policies);
+    }
+
     public function getpoliciesAction(){
 
         $policies = $this->restModel->getPolicies();

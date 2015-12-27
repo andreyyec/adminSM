@@ -4,13 +4,17 @@ require_once 'Beans/rb.php';
 
 class Base_Model_BaseModel{
 
+    var $constants;
+
     function __construct(){
-        $this->init();
+        $this->_init();
     }
     
-    function init(){
+    function _init(){
     	$this->_openDBConnection();
     	$this->_setExtendedFunctionsDB();
+        $registry = Zend_Registry::getInstance();
+        $this->constants = $registry['constants'];
     }
 
     // BASE DB functions
@@ -36,13 +40,13 @@ class Base_Model_BaseModel{
         });
     }
 
-    public function getDbTable($table) {
+    public function _getDbTable($table) {
         $table = R::findAll('adminsm_'.$table);
         return $table;
     }
 
 
-    public function getDbRegistries($table, $parameters){
+    public function _getDbRegistries($table, $parameters){
 
         $query = '';
         $paramArray = array();
@@ -62,7 +66,7 @@ class Base_Model_BaseModel{
         return $registry;
     }
 
-    public function getDbRegistry($table, $parameters){
+    public function _getDbRegistry($table, $parameters){
 
         $query = '';
         $paramArray = array();
@@ -77,10 +81,24 @@ class Base_Model_BaseModel{
             $paramArray[':'.$key] = $value;
             $counter ++;
         }
-        $registry = R::findOne('res_users', $query, $paramArray);
+        $registry = R::findOne($table, $query, $paramArray);
      
         return $registry;
     }
+
+    public function _createDBObject($type){
+
+        $obType = $this->constants->db_preffix.$type;
+
+        $object = R::xdispense($obType);
+
+        return $object;
+    }
+
+    public function _storeDBObject($object){
+        R::store($object);
+    }
+
 
     
 
@@ -89,7 +107,7 @@ class Base_Model_BaseModel{
 
     // Example Red Beans functions
 
-    function example_redBeans(){
+    /*function example_redBeans(){
 
     	// -- Create
     	$user = R::dispense('user');
@@ -130,12 +148,7 @@ class Base_Model_BaseModel{
 
     //R::exec('DELETE FROM user WHERE id = ?', [3]);
 
-    }
-
-    public function selectAllFromTable($table){
-        $table = R::findAll($table);
-        return $table;
-    }
+    }*/
 
 
 //Extended

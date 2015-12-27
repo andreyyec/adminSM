@@ -21,6 +21,14 @@ class Application_Model_RestModel extends Base_Model_BaseModel{
         return $data;
     }
 
+    public function setPolicy($data){
+
+        $policy = $this->_createDBObject('policies');
+        
+        //return $policy;
+
+    }
+
     public function _setDataTableRegistries($table){
 
         $data = array();
@@ -32,7 +40,8 @@ class Application_Model_RestModel extends Base_Model_BaseModel{
         }
 
         return $data;
-
     }
+
+
 }
 ?>
