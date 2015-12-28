@@ -4,11 +4,11 @@ namePolicy VARCHAR(40) NOT NULL,
 numberPolicy INTEGER NOT NULL UNIQUE,
 employerIDType CHAR(1),
 employerID VARCHAR(25) NOT NULL UNIQUE,
-employerName VARCHAR(80),
+employerName VARCHAR(150),
 employerPhone INTEGER NOT NULL,
 employerFax INTEGER,
 employerMail VARCHAR(80) NOT NULL,
-employerAddress VARCHAR(250) NOT NULL,
+employerAddress VARCHAR(300) NOT NULL,
 active CHAR(1) NOT NULL
 );
 
