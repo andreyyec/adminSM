@@ -1,11 +1,16 @@
 $(function(){
 
-	var dataTable;
+	var dataTable,
+	row = '#dataTable tbody tr',
+	modal = '#action-modal',
+	modalTitle = $(modal).find('.modal-title'),
+	modalActionbtn = $(modal).find('.modal-title');
 
 	function initDataTable(response){
 		dataTable = $('#dataTable').dataTable({
         	"columnDefs": [
-			    { "visible": false, "targets": 0 }
+			    { "visible": false, "targets": 0 },
+			    { className: "text-center", "targets": 5 }
 			],
             "data": response,
             "language": {
@@ -35,14 +40,33 @@ $(function(){
         }).api();
 	}
 
-	function addDataTableHandlers(){
-		$('#dataTable tbody').on( 'click', 'tr', function () {
-	    	console.log( dataTable.row( this ).data() );
+	function addDataTableListeners(){
+		$(row).on( 'click', '.btn-edit', function () {
+			var currentRow = $(this).closest('tr'),
+			rowData = dataTable.row(currentRow).data();
+
+
+	    	console.log('edit '+dataTable.row(currentRow).data() );
 		});
 
-		$('#dataTable tbody').on( 'click', 'tr', function () {
-	    	console.log( dataTable.row( this ).data() );
+		$(row).on( 'click', '.btn-delete', function () {
+			var currentRow = $(this).closest('tr'),
+			rowData = dataTable.row(currentRow).data();
+
+	    	console.log('delete '+dataTable.row(currentRow).data() );
 		});
+	}
+
+	function resetModal(){
+
+	}
+
+	function initModalAdd(){
+
+	}
+
+	function initModalDelete(){
+
 	}
 
 	$(document).ready(function() {		
@@ -51,7 +75,7 @@ $(function(){
 	        dataType : "json",
 	        success: function(response) {
 	            initDataTable(response);
-	            addDataTableHandlers();
+	            addDataTableListeners();
 	        }
 	    });
 	});
