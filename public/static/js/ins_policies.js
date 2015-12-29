@@ -4,7 +4,7 @@ $(function(){
 	row = '#dataTable tbody tr',
 	modal = '#action-modal',
 	modalTitle = $(modal).find('.modal-title'),
-	modalActionbtn = $(modal).find('.modal-title');
+	modalActionbtn = $(modal).find('.btn-action');
 
 	function initDataTable(response){
 		dataTable = $('#dataTable').dataTable({
@@ -40,23 +40,6 @@ $(function(){
         }).api();
 	}
 
-	function addDataTableListeners(){
-		$(row).on( 'click', '.btn-edit', function () {
-			var currentRow = $(this).closest('tr'),
-			rowData = dataTable.row(currentRow).data();
-
-
-	    	console.log('edit '+dataTable.row(currentRow).data() );
-		});
-
-		$(row).on( 'click', '.btn-delete', function () {
-			var currentRow = $(this).closest('tr'),
-			rowData = dataTable.row(currentRow).data();
-
-	    	console.log('delete '+dataTable.row(currentRow).data() );
-		});
-	}
-
 	function resetModal(){
 
 	}
@@ -65,8 +48,32 @@ $(function(){
 
 	}
 
+	function initModalEdit(data){
+		$(modalTitle).html('Actualizar Póliza');
+		$(modalActionbtn).html('<i class="fa fa-edit"></i> Actualizar')
+						 .addClass('btn-primary');
+		$(modal).modal('show');
+	}
+
 	function initModalDelete(){
 
+	}
+
+	function addDataTableListeners(){
+		$(row).on( 'click', '.btn-edit', function () {
+			var currentRow = $(this).closest('tr'),
+			rowData = dataTable.row(currentRow).data();
+
+			initModalEdit(rowData);
+
+		});
+
+		$(row).on( 'click', '.btn-delete', function () {
+			var currentRow = $(this).closest('tr'),
+			rowData = dataTable.row(currentRow).data();
+
+	    	console.log('delete '+dataTable.row(currentRow).data());
+		});
 	}
 
 	$(document).ready(function() {		
