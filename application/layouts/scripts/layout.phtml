@@ -20,7 +20,8 @@
                     ->appendStylesheet($this->constants->base_url . 'vendor/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css', 'all', true);
 
    echo $this->headScript()
-                    ->prependFile($this->constants->base_url.'vendor/adminlte/plugins/jQuery/jQuery-2.1.4.min.js');
+                    ->prependFile($this->constants->base_url.'vendor/adminlte/plugins/jQuery/jQuery-2.1.4.min.js')
+                    //->appendFile($this->constants->base_url.'vendor/jquery/validate/jquery.validate.js');
 ?>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
