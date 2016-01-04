@@ -9,127 +9,128 @@ $this->inlineScript()
     ->appendFile($this->constants->base_url.'static/js/ins_policies.js');
 
 ?>
-
-<div class="row">
-    <div class="col-xs-12">
-        <div class="box">
-            <!-- .box-header -->
-            <div class="box-header">
-                 <a class="btn btn-success btn-add"><i class="fa fa-plus"></i> Agregar</a>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-                <div class="dataTables_wrapper form-inline" role="grid">
-                    <table id="dataTable" class="table table-bordered table-hover dataTable">
-                        
-                    </table>
+<div class="dataTable-form">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <!-- .box-header -->
+                <div class="box-header">
+                     <a class="btn btn-success btn-add"><i class="fa fa-plus"></i> Agregar</a>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="dataTables_wrapper form-inline" role="grid">
+                        <table id="dataTable" class="table table-bordered table-hover dataTable">
+                            
+                        </table>
+                    </div>
                 </div>
             </div>
+            <!-- /.box-body -->
         </div>
-        <!-- /.box-body -->
     </div>
-</div>
 
-<div class="modal fade in" id="action-modal" tabindex="-1" role="dialog" aria-hidden="false">
-    <form id="modalForm" type="actionForm" method="get">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title"></h4>
-                </div>
+    <div class="modal fade in" id="action-modal" tabindex="-1" role="dialog" aria-hidden="false">
+        <form id="modalForm" type="actionForm" method="get">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
 
-                <div class="modal-body">
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h5> Datos de la póliza:</h5>
+                    <div class="modal-body">
+                        <div class="box box-primary">
+                            <div class="box-header">
+                                <h5> Datos de la póliza:</h5>
+                            </div>
+                            <div class="box-body">
+                                <input name="policyID" type="hidden" value="" data-reference="0">                   
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Nombre:</span>
+                                        <input id="policyName" name="policyName" type="text" class="form-control" placeholder="Nombre de póliza" data-reference="2">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Número de póliza:</span>
+                                        <input name="policyNumber" type="text" class="form-control" placeholder="Ej: 667755" data-reference="1">
+                                    </div>
+                                </div>
+                                <div class="form-group"> 
+                                    <div class="checkbox">
+                                        <label class="">
+                                            <div class="icheckbox_minimal" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;" data-reference="4" data-reference-type="checkbox"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                            Activa
+                                        </label>                                                
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="box-body">
-                            <input name="policyID" type="hidden" value="" data-reference="0">                   
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Nombre:</span>
-                                    <input id="policyName" name="policyName" type="text" class="form-control" placeholder="Nombre de póliza" data-reference="2">
-                                </div>
+
+                        <div class="box box-primary">
+                            <div class="box-header">
+                                <h5> Datos del patrono:</h5>
                             </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Número de póliza:</span>
-                                    <input name="policyNumber" type="text" class="form-control" placeholder="Ej: 667755" data-reference="1">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Tipo de identificación:</span>
+                                        <select name="email_to" type="email" class="form-control" placeholder="Email CC" data-reference="100">
+                                            <option>Cédula Jurídica</option>
+                                            <option>Cédula Nacional</option>
+                                            <option>Documento Único</option>
+                                            <option>Pasaporte</option>
+                                            <option>Residencia</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group"> 
-                                <div class="checkbox">
-                                    <label class="">
-                                        <div class="icheckbox_minimal" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;" data-reference="4" data-reference-type="checkbox"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
-                                        Activa
-                                    </label>                                                
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Identificación:</span>
+                                        <input name="employerIdNumber" type="text" class="form-control" placeholder="Número de identificación" data-reference="100">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Nombre:</span>
+                                        <input name="employerName" type="text" class="form-control" placeholder="Nombre del dueño de la póliza" data-reference="3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Teléfono:</span>
+                                        <input id="employerPhone" name="employerPhone" type="text" class="form-control" placeholder="Ej:87468375">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Fax:</span>
+                                        <input id="employerFax" name="employerFax" type="text" class="form-control" placeholder="Opcional">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">E-mail:</span>
+                                        <input id="employerEmail" name="employerEmail" type="email" class="form-control" placeholder="Ej: ejemplo@micorreo.com">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="employerAddress" name="employerAddress" class="form-control" placeholder="Dirección exacta de la empresa" style="height: 75px;"></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h5> Datos del patrono:</h5>
-                        </div>
-                        <div class="box-body">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Tipo de identificación:</span>
-                                    <select name="email_to" type="email" class="form-control" placeholder="Email CC" data-reference="100">
-                                        <option>Cédula Jurídica</option>
-                                        <option>Cédula Nacional</option>
-                                        <option>Documento Único</option>
-                                        <option>Pasaporte</option>
-                                        <option>Residencia</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Identificación:</span>
-                                    <input name="employerIdNumber" type="text" class="form-control" placeholder="Número de identificación" data-reference="100">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Nombre:</span>
-                                    <input name="employerName" type="text" class="form-control" placeholder="Nombre del dueño de la póliza" data-reference="3">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Teléfono:</span>
-                                    <input id="employerPhone" name="employerPhone" type="text" class="form-control" placeholder="Ej:87468375">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Fax:</span>
-                                    <input id="employerFax" name="employerFax" type="text" class="form-control" placeholder="Opcional">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">E-mail:</span>
-                                    <input id="employerEmail" name="employerEmail" type="email" class="form-control" placeholder="Ej: ejemplo@micorreo.com">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="employerAddress" name="employerAddress" class="form-control" placeholder="Dirección exacta de la empresa" style="height: 75px;"></textarea>
-                            </div>
-                        </div>
+                    <div class="modal-footer clearfix">
+
+                        <button type="button" class="btn btn-action"><i class="fa"></i></button>
+
+                        <button type="button" class="btn btn-danger btn-cancel" data-dismiss="modal"><i class="fa fa-times"></i> Cancelar</button>
                     </div>
-                </div>
-
-                <div class="modal-footer clearfix">
-
-                    <button type="button" class="btn btn-action"><i class="fa"></i></button>
-
-                    <button type="button" class="btn btn-danger btn-cancel" data-dismiss="modal"><i class="fa fa-times"></i> Cancelar</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </form>
+    </div>
 </div>
