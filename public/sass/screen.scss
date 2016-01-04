@@ -13,6 +13,9 @@
 //@import "../static/img/my-icons/*.png";
 //@include all-my-icons-sprites;
 
+//partials
+@import "partials/global";
+@import "partials/dataTable-form"
+
 //pages
-@import "pages/global";
 @import "pages/home";

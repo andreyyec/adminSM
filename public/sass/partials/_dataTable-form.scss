@@ -1,0 +1,30 @@
+.dataTable-form{
+	.modal{
+		form{
+			.modal-dialog{
+				.modal-content{
+					.modal-body{
+						.form-group{
+							.input-group{
+								.input-group-addon{
+									//height: 34px;
+								}
+
+								.form-control{
+									background: rgba(255,255,255,0.2);
+								}
+
+								.error{
+									color: red;
+									position: absolute;
+									right: 8px;
+									top: 6px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
