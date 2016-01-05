@@ -1,5 +1,4 @@
 .dataTable-form{
-	background-color: red;
 	.modal{
 		form{
 			.modal-dialog{
@@ -15,11 +14,14 @@
 									background: rgba(255,255,255,0.2);
 								}
 
-								.error{
-									color: red;
-									position: absolute;
-									right: 8px;
-									top: 6px;
+								label{
+									
+									&.error{
+										color: red;
+										position: absolute;
+										right: 8px;
+										top: 6px;
+									}
 								}
 							}
 						}
