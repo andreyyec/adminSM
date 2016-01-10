@@ -15,13 +15,18 @@
 								}
 
 								label{
-									
 									&.error{
 										color: red;
 										position: absolute;
 										right: 8px;
 										top: 6px;
 									}
+								}
+							}
+
+							label{
+								&.error{
+									color: red;
 								}
 							}
 						}

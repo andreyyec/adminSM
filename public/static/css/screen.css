@@ -8581,10 +8581,14 @@ body .wrapper .content-wrapper .content .dataTable-form .modal form .styled-chec
 .dataTable-form .modal form .modal-dialog .modal-content .modal-body .form-group .input-group .form-control {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 19, ../../sass/partials/_dataTable-form.scss */
+/* line 18, ../../sass/partials/_dataTable-form.scss */
 .dataTable-form .modal form .modal-dialog .modal-content .modal-body .form-group .input-group label.error {
   color: red;
   position: absolute;
   right: 8px;
   top: 6px;
+}
+/* line 28, ../../sass/partials/_dataTable-form.scss */
+.dataTable-form .modal form .modal-dialog .modal-content .modal-body .form-group label.error {
+  color: red;
 }

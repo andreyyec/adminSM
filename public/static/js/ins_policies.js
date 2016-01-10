@@ -1,6 +1,6 @@
 $(function(){
 
-	var dataTable,
+	var dataTable, validator,
 	row = '#dataTable tbody tr',
 	modal = '#action-modal',
 	modalTitle = $(modal).find('.modal-title'),
@@ -64,12 +64,14 @@ $(function(){
 
 			if (that.is('input')) {
 				if (that.attr('type') !== 'checkbox') {
-					$(this).val('');
+					$(that).val('');
 				}else{
 					console.log('isCheckbox');
 				}
 			}else if (that.is('select')) {
 				$(that.find('option')[0]).attr('selected','selected');
+			}else if (that.is('textarea')) {
+				$(that).val('');
 			};
 		});
 	}
@@ -96,6 +98,7 @@ $(function(){
 
 		$('.btn-add').on('click', function(){
 			cleanModal(modalEditableElement);
+			validator.resetForm();
 			$(modalTitle).html('Crear Póliza');
 			$(modalActionbtn).html('<i class="fa fa-check"></i> Crear')
 						 .attr('class', 'btn btn-success btn-submit');
@@ -125,7 +128,7 @@ $(function(){
 	function addValidations() {
 		var requiredMessage = 'Campo requerido';
 
-		$(modalForm).validate({
+		validator = $(modalForm).validate({
   			onsubmit: false,
   			rules: {
 			    policyName: {
@@ -175,6 +178,9 @@ $(function(){
 			    	required: requiredMessage,
 			    	digits: 'Ingresar solo números',
 			    	maxlength: 'Máximo 7 dígitos'
+			    },
+			    idType: {
+			    	required: requiredMessage,
 			    },
 			    employerIdNumber: {
 			    	required: requiredMessage,
