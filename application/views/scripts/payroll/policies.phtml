@@ -58,12 +58,9 @@ $this->inlineScript()
                                         <input name="policyNumber" type="text" class="form-control" placeholder="Ej: 667755" data-reference="1">
                                     </div>
                                 </div>
-                                <div class="form-group"> 
+                                <div class="form-group">
                                     <div class="checkbox">
-                                        <label class="">
-                                            <div class="icheckbox_minimal" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;" data-reference="4" data-reference-type="checkbox"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
-                                            Activa
-                                        </label>                                                
+                                        <div class="styled-checkbox" aria-checked="true" aria-disabled="false"><input type="checkbox" data-reference="10"><label>Activa</label></div> 
                                     </div>
                                 </div>
                             </div>
@@ -77,47 +74,48 @@ $this->inlineScript()
                                 <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon">Tipo de identificación:</span>
-                                        <select name="email_to" type="email" class="form-control" placeholder="Email CC" data-reference="100">
-                                            <option>Cédula Jurídica</option>
-                                            <option>Cédula Nacional</option>
-                                            <option>Documento Único</option>
-                                            <option>Pasaporte</option>
-                                            <option>Residencia</option>
+                                        <select name="idType" class="form-control" data-reference="3">
+                                            <option class="default"value="0">Seleccionar</option>
+                                            <option value="1">Cédula Jurídica</option>
+                                            <option value="2">Cédula Nacional</option>
+                                            <option value="3">Documento Único</option>
+                                            <option value="4">Pasaporte</option>
+                                            <option value="5">Residencia</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon">Identificación:</span>
-                                        <input name="employerIdNumber" type="text" class="form-control" placeholder="Número de identificación" data-reference="100">
+                                        <input name="employerIdNumber" type="text" class="form-control" placeholder="Número de identificación" data-reference="4">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon">Nombre:</span>
-                                        <input name="employerName" type="text" class="form-control" placeholder="Nombre del dueño de la póliza" data-reference="3">
+                                        <input name="employerName" type="text" class="form-control" placeholder="Nombre del dueño de la póliza" data-reference="5">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon">Teléfono:</span>
-                                        <input id="employerPhone" name="employerPhone" type="text" class="form-control" placeholder="Ej:87468375">
+                                        <input id="employerPhone" name="employerPhone" type="text" class="form-control" placeholder="Ej:87468375" data-reference="6">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon">Fax:</span>
-                                        <input id="employerFax" name="employerFax" type="text" class="form-control" placeholder="Opcional">
+                                        <input id="employerFax" name="employerFax" type="text" class="form-control" placeholder="Opcional" data-reference="7">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon">E-mail:</span>
-                                        <input id="employerEmail" name="employerEmail" type="email" class="form-control" placeholder="Ej: ejemplo@micorreo.com">
+                                        <input id="employerEmail" name="employerEmail" type="email" class="form-control" placeholder="Ej: ejemplo@micorreo.com" data-reference="8">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <textarea id="employerAddress" name="employerAddress" class="form-control" placeholder="Dirección exacta de la empresa" style="height: 75px;"></textarea>
+                                    <textarea id="employerAddress" name="employerAddress" class="form-control" placeholder="Dirección exacta de la empresa" style="height: 75px;" data-reference="9"></textarea>
                                 </div>
                             </div>
                         </div>

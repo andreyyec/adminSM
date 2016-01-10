@@ -46,8 +46,9 @@ class Application_Model_RestModel extends Base_Model_BaseModel{
         $data = array();
 
         foreach ($table as $row) {
+
             $actions = '<button class="btn btn-primary btn-edit">Editar</button> <button class="btn btn-danger btn-delete">Eliminar</button>';
-            $temp = array($row->id, $row->numberpolicy, $row->namepolicy, $row->employername, $row->active, $actions);
+            $temp = array($row->id, $row->numberpolicy, $row->namepolicy, $row->employeridtype, $row->employerid , $row->employername, $row->employerphone, $row->employerfax, $row->employermail, $row->employeraddress, $row->active, $actions);
             array_push($data, $temp);
         }
 

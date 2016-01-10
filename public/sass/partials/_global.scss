@@ -1,230 +1,39 @@
 body{
 
-    background-color: black;
-
     .clearfix{
         overflow: auto;
     }
 
-    .pageOuterWrapper{
-        background-image: url('../img/main-background.jpg');
-        background-repeat: repeat-x;
-        text-align:center;
-
-        .pageInnerWrapper{
-            display: inline-block;
-            max-width: 1000px;
-
-            @include desktop{
-                float:none;
-                padding: 0;
-            }
-
-            header{
-                margin-bottom: 10px;
-
-                nav{
-                    position: relative;
-                    height: 80px;
-
-                    @include desktop(){
-                        margin-right: 0;
-                        margin-left: 0;
-                    }
-
-                    img{
-                        height: 55px;
-                        width: 250px;
-                        position: relative;
-                        top: 50%;
-                        margin-top: -28px;
-                        left: 20px;
-                        float: left;
-
-                        @include tablet-upper(){
-                            width: 275px;
-                            height: 55px;
-                        }
-
-                        @include desktop(){
-                            left: 0;
-                        }
-                    }
-
-                    .navigation-bars{
-                        font-size: 24px;
-                        color: white;
-                        position: absolute;
-                        top: 50%;
-                        right: 40px;
-                        margin-top: -14px;
-                        padding: 0;
-
-                        @include desktop(){
-                            display: none;
-                        }
-                    }
-
-                    .navigation-list{
-                        position: absolute;
-                        padding: 0;
-                        z-index: 9999;
-
-                        &.desktop-show{
-                            
-                            @include tablet-under(){
-                                display: none;
-                            }
-                        }
-
-                        @include desktop(){
-                            display: inline-block;
-                            position: relative;
-                            margin-top: 10px;
-                        }
-
-                        ul{
-                            overflow: auto;
-
-                            li{
-                                display: block;
-                                text-align: center;
+    .wrapper{
+        .content-wrapper{
+            .content{
+                .dataTable-form{
+                    .modal{
+                        form{
+                            .styled-checkbox{
+                                display: inline-block;
+                                vertical-align: middle;
+                                margin: 0;
                                 padding: 0;
+                                width: 18px;
+                                height: 18px;
+                                background: rgba(255, 255, 255, 0.7) url(../img/minimal.png) no-repeat;
+                                border: none;
+                                cursor: pointer;
+                                background-position: 0 0;
 
-                                &.home{
-                                    background-color: $home;
+                                &.checked{
+                                    background-position: -40px 0;
 
-                                    &:hover{
-                                        background-color: $home-hover;
-                                    }
-                                }
-                                &.gallery{
-                                    background-color: $gallery;
-
-                                    &:hover{
-                                        background-color: $gallery-hover;
-                                    }
-                                }
-                                &.story{
-                                    background-color: $story;
-
-                                    &:hover{
-                                        background-color: $story-hover;
-                                    }
-                                }
-                                &.blog{
-                                    background-color: $blog;
-
-                                    &:hover{
-                                        background-color: $blog-hover;
-                                    }
-                                }
-                                &.login{
-                                    background-color: $login;
-
-                                    &:hover{
-                                        background-color: $login-hover;
-                                    }
-                                }
-                                &.about{
-                                    background-color: $about;
-
-                                    &:hover{
-                                        background-color: $about-hover;
-                                    }
                                 }
 
-                                @include desktop(){
-                                    padding-left: 0;
-                                    padding-right: 0;
+                                input[type=checkbox]{
+                                    display: none;
                                 }
-
-                                &:hover{
-                                    .link-decoration{
-                                        i{
-                                            box-shadow: 0 0 0 0 rgba(255,255,255,0.2);
-                                            -webkit-transition: box-shadow .4s ease-in-out;
-                                            -moz-transition: box-shadow .4s ease-in-out;
-                                            -o-transition: box-shadow .4s ease-in-out;
-                                            -ms-transition: box-shadow .4s ease-in-out;
-                                            transition: box-shadow .4s ease-in-out;
-                                        }
-                                    }  
-                                }
-
-                                span{
-                                    display: block;
-                                    color: white;
-                                }
-
-                                a{
-                                    display: block;
-                                    vertical-align: middle;
-                                    text-align: center;
-                                    min-height: 20px;
-                                    text-decoration: none;
-                                    font-size: 20px;
-                                    color: white;
-
-                                    .link-decoration{
-                                        height: 40px;
-                                        margin-top: 10px;
-
-                                        i{
-                                            position: relative;
-                                            display: inline-block;
-                                            padding: 0.9em;
-                                            background: rgba(255,255,255,0.1);
-                                            border-radius: 50%;
-                                            box-shadow: 0 0 0 30px transparent;
-                                            -webkit-transition: box-shadow .6s ease-in-out;
-                                            -moz-transition: box-shadow .6s ease-in-out;
-                                            -o-transition: box-shadow .6s ease-in-out;
-                                            -ms-transition: box-shadow .6s ease-in-out;
-                                            transition: box-shadow .6s ease-in-out;
-
-                                            
-                                        }
-                                    }
-
-                                    .link-text{
-                                        margin: 10px 0px;
-
-                                        @include tablet-under(){
-                                            margin: 20px 0px;
-                                        }
-                                    }
-
-                                    @include desktop(){
-                                        font-size: 16px;
-                                    }
-                                }
-
-                                @include tablet-under(){
-                                    height: 130px;
-                                }   
                             }
                         }
-
-
-                        @include tablet-under(){
-                            top: 75px;
-                        } 
-                    
-                        @include desktop(){
-                            display: block;
-                            float: right;
-                        }
-                    }
-
-                    @include desktop(){
-                        height: 102px;
                     }
                 }
-            }
-
-            .mainContent{
-                background-color: white;
             }
         }
     }
