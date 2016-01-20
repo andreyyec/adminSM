@@ -94,7 +94,7 @@ $(function(){
 		$(modal).modal('show');
 	}
 
-	function addDataTableListeners(){
+	function addPageListeners(){
 
 		$('.btn-add').on('click', function(){
 			cleanModal(modalEditableElement);
@@ -106,7 +106,21 @@ $(function(){
 		});
 
 		$(modal).on('click', '.btn-submit', function(){
-			$(modalForm).valid();
+			var isValid = $(modalForm).valid(),
+				formData = $('#modalForm').serializeArray();
+
+			console.log(formData);
+
+			if (isValid) {
+				$.ajax({ 
+					type: "POST",
+			        url: '/rest/setpolicy',
+			        data: formData,
+			        success: function(response) {
+			            console.log('terminado');
+			        }
+			    });
+			};
 		});
 
 		$(row).on('click', '.btn-edit', function () {
@@ -218,7 +232,7 @@ $(function(){
 	        dataType : "json",
 	        success: function(response) {
 	            initDataTable(response);
-	            addDataTableListeners();
+	            addPageListeners();
 	        }
 	    });
 	});

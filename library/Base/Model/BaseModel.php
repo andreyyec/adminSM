@@ -4,7 +4,7 @@ require_once 'Beans/rb.php';
 
 class Base_Model_BaseModel{
 
-    var $constants;
+    var $constants, $db_preffix;
 
     function __construct(){
         $this->_init();
@@ -15,6 +15,7 @@ class Base_Model_BaseModel{
     	$this->_setExtendedFunctionsDB();
         $registry = Zend_Registry::getInstance();
         $this->constants = $registry['constants'];
+        $this->db_preffix = $this->constants->db_preffix;
     }
 
     // BASE DB functions
@@ -41,7 +42,7 @@ class Base_Model_BaseModel{
     }
 
     public function _getDbTable($table) {
-        $table = R::findAll('adminsm_'.$table);
+        $table = R::findAll($this->db_preffix.$table);
         return $table;
     }
 
@@ -88,21 +89,23 @@ class Base_Model_BaseModel{
 
     public function _createDBObject($type){
 
-        $obType = $this->constants->db_preffix.$type;
+        $obType = $this->db_preffix.$type;
 
         $object = R::xdispense($obType);
 
         return $object;
     }
 
-    public function _storeDBObject($object){
-        R::store($object);
+    public function _getDBObject($type, $id){
+        $dbOject = R::load($this->db_preffix.$type, $id);
+        return $dbOject;
     }
 
+    public function _storeDBObject($object){
+        $output = R::store($object);
 
-    
-
-
+        return $output;
+    }
 
 
     // Example Red Beans functions

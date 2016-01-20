@@ -25,20 +25,19 @@ class Application_Model_RestModel extends Base_Model_BaseModel{
 
         $policy = $this->_createDBObject('policies');
 
-        $policy ->namepolicy = 'test1';
-        $policy->numberpolicy = 663562;
-        $policy->employeridtype = 'M';
-        $policy->employerid = 107260219;
-        $policy->employername = 'Gerardo Castro Campos';
-        $policy->employerphone = 83827273;
-        $policy->employermail = 'gcastro@recicladorasanmiguel.com';
-        $policy->employeraddress = 'San Jose, Alajuelita, Concepción abajo, 200 metros oeste del templo católico';
-        $policy->active = 'Y';
+        $policy ->namepolicy = $data['policyName'];
+        $policy->numberpolicy = $data['policyNumber'];
+        $policy->employeridtype = $data['idType'];
+        $policy->employerid = $data['employerIdNumber'];
+        $policy->employername = $data['employerName'];
+        $policy->employerphone = $data['employerPhone'];
+        $policy->employermail = $data['employerEmail'];
+        $policy->employeraddress = $data['employerAddress'];
+        $policy->active = (isset($data['']) ? 1 : 0);
 
-        $test = $this->_storeDBObject($policy);
-        
-        return $test;
+        $output = $this->_storeDBObject($policy);
 
+        return $output;
     }
 
     public function setPoliciesDataTable($table){
@@ -46,7 +45,6 @@ class Application_Model_RestModel extends Base_Model_BaseModel{
         $data = array();
 
         foreach ($table as $row) {
-
             $actions = '<button class="btn btn-primary btn-edit">Editar</button> <button class="btn btn-danger btn-delete">Eliminar</button>';
             $temp = array($row->id, $row->numberpolicy, $row->namepolicy, $row->employeridtype, $row->employerid , $row->employername, $row->employerphone, $row->employerfax, $row->employermail, $row->employeraddress, $row->active, $actions);
             array_push($data, $temp);
@@ -54,7 +52,5 @@ class Application_Model_RestModel extends Base_Model_BaseModel{
 
         return $data;
     }
-
-
 }
 ?>
