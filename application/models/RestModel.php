@@ -18,6 +18,8 @@ class Application_Model_RestModel extends Base_Model_BaseModel{
 
         $data = $this->setPoliciesDataTable($policies);
 
+        die(var_dump($data));
+
         return $data;
     }
 

@@ -159,7 +159,14 @@ $(function(){
 			    },
 			    employerIdNumber: {
 			    	required: true,
-			    	digits: true
+			    	digits: {
+			    		depends: '#idType>option[value=2]:selected'
+			    	}
+			    	/*custom: {
+					param : 4
+					depends: function(e){}
+					depends: '#chk-alt-billing-address:checked'
+			    	}*/
 			    },
 			    employerName: {
 			    	required: true,
